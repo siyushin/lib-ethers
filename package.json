@@ -14,8 +14,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "prepare": "run-s 'prepare:*'",
-    "prepare:deployments": "ts-node --project tsconfig.dist.json scripts/copy-deployments.ts",
-    "prepare:types": "ts-node --project tsconfig.dist.json scripts/generate-types.ts",
+    "prepare:deployments": "node scripts/copy-deployments.js",
+    "prepare:types": "node scripts/generate-types.js",
     "prepare:eslint": "eslint src",
     "prepare:tsc": "tsc --project tsconfig.dist.json"
   },
@@ -23,6 +23,7 @@
     "ethers": "^5.3.0"
   },
   "devDependencies": {
+    "@ethersproject/abi": "^5.7.0",
     "@liquity/lib-base": "^3.0.0",
     "@microsoft/api-extractor": "7.13.2",
     "@nomiclabs/hardhat-ethers": "^2.0.2",
