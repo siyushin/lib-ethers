@@ -34,7 +34,7 @@ import {
   _normalizeTroveCreation,
   _pendingReceipt,
   _successfulReceipt
-} from "lib-base";
+} from "@liquity/lib-base";
 
 import {
   EthersPopulatedTransaction,

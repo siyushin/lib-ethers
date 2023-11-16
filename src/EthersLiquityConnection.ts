@@ -1,7 +1,7 @@
 import { Block, BlockTag } from "@ethersproject/abstract-provider";
 import { Signer } from "@ethersproject/abstract-signer";
 
-import { Decimal } from "lib-base";
+import { Decimal } from "@liquity/lib-base";
 
 import devOrNull from "../deployments/dev.json";
 import goerli from "../deployments/goerli.json";

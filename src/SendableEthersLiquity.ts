@@ -11,7 +11,7 @@ import {
   TroveClosureDetails,
   TroveCreationDetails,
   TroveCreationParams
-} from "lib-base";
+} from "@liquity/lib-base";
 
 import {
   EthersTransactionOverrides,
