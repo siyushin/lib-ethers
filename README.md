@@ -7,7 +7,7 @@
 Install in your project:
 
 ```
-npm install --save @liquity/lib-base @liquity/lib-ethers ethers@^5.0.0
+npm install --save lib-base @liquity/lib-ethers ethers@^5.0.0
 ```
 
 Connecting to an Ethereum node and sending a transaction:
