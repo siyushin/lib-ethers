@@ -25,7 +25,7 @@ import {
   TroveListingParams,
   TroveWithPendingRedistribution,
   UserTrove
-} from "@liquity/lib-base";
+} from "lib-base";
 
 import {
   EthersLiquityConnection,

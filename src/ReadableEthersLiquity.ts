@@ -13,7 +13,7 @@ import {
   TroveWithPendingRedistribution,
   UserTrove,
   UserTroveStatus
-} from "@liquity/lib-base";
+} from "lib-base";
 
 import { MultiTroveGetter } from "../types";
 

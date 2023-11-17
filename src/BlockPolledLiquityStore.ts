@@ -10,7 +10,7 @@ import {
   LQTYStake,
   LiquityStore,
   Fees
-} from "@liquity/lib-base";
+} from "lib-base";
 
 import { decimalify, promiseAllValues } from "./_utils";
 import { ReadableEthersLiquity } from "./ReadableEthersLiquity";

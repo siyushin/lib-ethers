@@ -23,7 +23,7 @@
     "ethers": "^5.3.0"
   },
   "devDependencies": {
-    "@liquity/lib-base": "^3.0.0",
+    "lib-base": "https://github.com/siyushin/lib-base.git#f430f9da33a3a4ce35f32a660ad89fdb264d1aa8",
     "@ethersproject/abi": "^5.7.0",
     "@microsoft/api-extractor": "7.13.2",
     "@openzeppelin/contracts": "3.3.0",
