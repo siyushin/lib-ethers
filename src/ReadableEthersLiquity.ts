@@ -515,9 +515,9 @@ export class ReadableEthersLiquity implements ReadableLiquity {
 
     const [stakedLQTY, collateralGain, lusdGain] = await Promise.all(
       [
-        lqtyStaking.stakes(address, { ...overrides }),
-        lqtyStaking.getPendingETHGain(address, { ...overrides }),
-        lqtyStaking.getPendingLUSDGain(address, { ...overrides })
+        lqtyStaking?.stakes(address, { ...overrides }) || Decimal.ZERO,
+        lqtyStaking?.getPendingETHGain(address, { ...overrides }) || Decimal.ZERO,
+        lqtyStaking?.getPendingLUSDGain(address, { ...overrides }) || Decimal.ZERO
       ].map(getBigNumber => getBigNumber.then(decimalify))
     );
 
@@ -528,7 +528,12 @@ export class ReadableEthersLiquity implements ReadableLiquity {
   async getTotalStakedLQTY(overrides?: EthersCallOverrides): Promise<Decimal> {
     const { lqtyStaking } = _getContracts(this.connection);
 
-    return lqtyStaking.totalLQTYStaked({ ...overrides }).then(decimalify);
+    if (lqtyStaking)
+      return lqtyStaking.totalLQTYStaked({ ...overrides }).then(decimalify);
+    else
+      return new Promise((resolve, reject) => {
+        return resolve(Decimal.ZERO)
+      });
   }
 
   /** {@inheritDoc lib-base#ReadableLiquity.getFrontendStatus} */
