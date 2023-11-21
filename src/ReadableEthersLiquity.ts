@@ -515,9 +515,9 @@ export class ReadableEthersLiquity implements ReadableLiquity {
 
     const [stakedLQTY, collateralGain, lusdGain] = await Promise.all(
       [
-        lqtyStaking?.stakes(address, { ...overrides }) || Decimal.ZERO,
-        lqtyStaking?.getPendingETHGain(address, { ...overrides }) || Decimal.ZERO,
-        lqtyStaking?.getPendingLUSDGain(address, { ...overrides }) || Decimal.ZERO
+        lqtyStaking?.stakes(address, { ...overrides }) || new Promise((resolve, reject) => resolve(BigNumber.from(0))),
+        lqtyStaking?.getPendingETHGain(address, { ...overrides }) || new Promise((resolve, reject) => resolve(BigNumber.from(0))),
+        lqtyStaking?.getPendingLUSDGain(address, { ...overrides }) || new Promise((resolve, reject) => resolve(BigNumber.from(0)))
       ].map(getBigNumber => getBigNumber.then(decimalify))
     );
 
