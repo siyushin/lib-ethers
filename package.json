@@ -17,7 +17,8 @@
     "prepare:deployments": "node scripts/copy-deployments.js",
     "prepare:types": "node scripts/generate-types.js",
     "prepare:eslint": "eslint src",
-    "prepare:tsc": "tsc"
+    "prepare:tsc": "tsc",
+    "build": "yarn prepare"
   },
   "peerDependencies": {
     "ethers": "^5.3.0"
