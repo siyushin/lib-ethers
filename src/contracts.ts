@@ -125,7 +125,12 @@ const buildEstimatedFunctions = <T>(
       functionName,
       async (overrides, adjustEstimate, ...args) => {
         if (overrides.gasLimit === undefined) {
+          console.debug("计算gas前", estimateFunctions, functionName, overrides, ...args);
+          console.debug("计算gas前检查参数", ...args);
+
           const estimatedGas = await estimateFunctions[functionName](...args, overrides);
+
+          console.debug("计算gas结果", estimatedGas);
 
           overrides = {
             ...overrides,

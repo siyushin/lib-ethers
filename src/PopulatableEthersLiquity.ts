@@ -1109,6 +1109,8 @@ export class PopulatableEthersLiquity
     const { stabilityPool } = _getContracts(this._readable.connection);
     const depositLUSD = Decimal.from(amount);
 
+    console.debug("计算gas前准备参数", depositLUSD);
+
     return this._wrapStabilityDepositTopup(
       { depositLUSD },
       await stabilityPool.estimateAndPopulate.provideToSP(
