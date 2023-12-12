@@ -866,12 +866,12 @@ export class PopulatableEthersLiquity
         currentBorrowingRate
       );
 
-      if (decayedTrove.debt.lt(LUSD_MINIMUM_DEBT)) {
-        throw new Error(
-          `Trove's debt might fall below ${LUSD_MINIMUM_DEBT} ` +
-          `within ${borrowingFeeDecayToleranceMinutes} minutes`
-        );
-      }
+      // if (decayedTrove.debt.lt(LUSD_MINIMUM_DEBT)) {
+      //   throw new Error(
+      //     `Trove's debt might fall below ${LUSD_MINIMUM_DEBT} ` +
+      //     `within ${borrowingFeeDecayToleranceMinutes} minutes`
+      //   );
+      // }
 
       const [gasNow, gasLater] = await Promise.all([
         borrowerOperations.estimateGas.openTrove(...txParams(borrowLUSD)),
@@ -1000,12 +1000,12 @@ export class PopulatableEthersLiquity
         currentBorrowingRate
       );
 
-      if (decayedTrove.debt.lt(LUSD_MINIMUM_DEBT)) {
-        throw new Error(
-          `Trove's debt might fall below ${LUSD_MINIMUM_DEBT} ` +
-          `within ${borrowingFeeDecayToleranceMinutes} minutes`
-        );
-      }
+      // if (decayedTrove.debt.lt(LUSD_MINIMUM_DEBT)) {
+      //   throw new Error(
+      //     `Trove's debt might fall below ${LUSD_MINIMUM_DEBT} ` +
+      //     `within ${borrowingFeeDecayToleranceMinutes} minutes`
+      //   );
+      // }
 
       const [gasNow, gasLater] = await Promise.all([
         borrowerOperations.estimateGas.adjustTrove(...txParams(borrowLUSD)),
