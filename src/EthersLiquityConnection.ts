@@ -11,6 +11,7 @@ import ropsten from "../deployments/ropsten.json";
 import mainnet from "../deployments/mainnet.json";
 import kiln from "../deployments/kiln.json";
 import iotexTestnet from "../deployments/iotexTestnet.json";
+import iotex from "../deployments/iotex.json";
 
 import { numberify, panic } from "./_utils";
 import { EthersProvider, EthersSigner } from "./types";
@@ -36,6 +37,7 @@ const deployments: {
   [kovan.chainId]: kovan,
   [kiln.chainId]: kiln,
   [iotexTestnet.chainId]: iotexTestnet,
+  [iotex.chainId]: iotex,
 
   ...(dev !== null ? { [dev.chainId]: dev } : {})
 };
