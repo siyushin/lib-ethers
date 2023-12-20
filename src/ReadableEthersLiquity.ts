@@ -716,8 +716,6 @@ class _BlockPolledReadableEthersLiquity
   }
 
   async getTotalStakedUniTokens(overrides?: EthersCallOverrides): Promise<Decimal> {
-    console.debug("lib-ethers: getTotalStakedUniTokens()");
-
     return this._blockHit(overrides)
       ? this.store.state.totalStakedUniTokens
       : this._readable.getTotalStakedUniTokens(overrides);

@@ -1109,8 +1109,6 @@ export class PopulatableEthersLiquity
     const { stabilityPool } = _getContracts(this._readable.connection);
     const depositLUSD = Decimal.from(amount);
 
-    console.debug("计算gas前准备参数", depositLUSD);
-
     return this._wrapStabilityDepositTopup(
       { depositLUSD },
       await stabilityPool.estimateAndPopulate.provideToSP(
@@ -1325,12 +1323,8 @@ export class PopulatableEthersLiquity
     kickbackRate: Decimalish,
     overrides?: EthersTransactionOverrides
   ): Promise<PopulatedEthersLiquityTransaction<void>> {
-    console.debug("lib-ethers: registerFrontend()", kickbackRate, typeof kickbackRate);
-
     overrides = this._prepareOverrides(overrides);
     const { stabilityPool } = _getContracts(this._readable.connection);
-
-    console.debug("lib-ethers: registerFrontend() 更改", kickbackRate, Decimal.from(kickbackRate));
 
     return this._wrapSimpleTransaction(
       await stabilityPool.estimateAndPopulate.registerFrontEnd(
