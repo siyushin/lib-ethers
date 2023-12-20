@@ -46,7 +46,7 @@
     "eslint-plugin-tsdoc": "0.2.11",
     "ethers": "5.7.2",
     "fs-extra": "9.1.0",
-    "lib-base": "https://github.com/siyushin/lib-base.git#1109082a240cf46f75e6ce05fc767816a62b5ad4",
+    "lib-base": "https://github.com/siyushin/lib-base.git#7dcd125fd358d152ba791e4c0a3d876be7fc9f14",
     "npm-run-all": "4.1.5",
     "typescript": "4.1.5",
     "ws": "7.4.6"
