@@ -33,7 +33,7 @@ import {
 
 import { BlockPolledLiquityStore } from "./BlockPolledLiquityStore";
 import { resolve } from "path";
-import { BigNumber } from "ethers";
+import { BigNumber } from "@ethersproject/bignumber";
 
 // TODO: these are constant in the contracts, so it doesn't make sense to make a call for them,
 // but to avoid having to update them here when we change them in the contracts, we could read
