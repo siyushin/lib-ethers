@@ -286,7 +286,7 @@ export class ReadableEthersLiquity implements ReadableLiquity {
     const totalLQTYIssued = decimalify((await communityIssuance?.totalLQTYIssued({ ...overrides })) || BigNumber.from(0));
 
     // totalLQTYIssued approaches but never reaches issuanceCap
-    return issuanceCap.sub(totalLQTYIssued);
+    return issuanceCap.gt(totalLQTYIssued) ? issuanceCap.sub(totalLQTYIssued) : Decimal.ZERO;
   }
 
   /** {@inheritDoc lib-base#ReadableLiquity.getLUSDInStabilityPool} */
