@@ -25,7 +25,7 @@
     "gasPool": "0x421aA994d8C80dcBe3Aa33f6478E7D410a4C8A50",
     "lusdToken": "0x659dd68Ad9CCDA1fC4Dda42BdCe56642356eaf44",
     "unipool": "",
-    "lqtyToken": "",
+    "lqtyToken": "0xf9b0057843adc1bfc7279b4a5249114b407083ef",
     "multiTroveGetter": "0xf672ee5017b6af9A7a747d5010dE6D8cb8949eb0",
     "uniToken": ""
   }
