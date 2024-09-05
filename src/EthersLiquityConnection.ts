@@ -1,7 +1,7 @@
 import { Block, BlockTag } from "@ethersproject/abstract-provider";
 import { Signer } from "@ethersproject/abstract-signer";
 
-import { Decimal } from "@liquity/lib-base";
+import { Decimal } from "lib-base";
 
 import devOrNull from "../deployments/dev.json";
 import goerli from "../deployments/goerli.json";
@@ -11,6 +11,7 @@ import ropsten from "../deployments/ropsten.json";
 import mainnet from "../deployments/mainnet.json";
 import kiln from "../deployments/kiln.json";
 import iotexTestnet from "../deployments/iotexTestnet.json";
+import iotex from "../deployments/iotex.json";
 
 import { numberify, panic } from "./_utils";
 import { EthersProvider, EthersSigner } from "./types";
@@ -36,6 +37,7 @@ const deployments: {
   [kovan.chainId]: kovan,
   [kiln.chainId]: kiln,
   [iotexTestnet.chainId]: iotexTestnet,
+  [iotex.chainId]: iotex,
 
   ...(dev !== null ? { [dev.chainId]: dev } : {})
 };
@@ -272,7 +274,7 @@ export interface EthersLiquityConnectionOptionalParams {
   readonly frontendTag?: string;
 
   /**
-   * Create a {@link @liquity/lib-base#LiquityStore} and expose it as the `store` property.
+   * Create a {@link lib-base#LiquityStore} and expose it as the `store` property.
    *
    * @remarks
    * When set to one of the available {@link EthersLiquityStoreOption | options},
@@ -282,7 +284,7 @@ export interface EthersLiquityConnectionOptionalParams {
    * {@link EthersLiquityWithStore}.
    *
    * Note that the store won't start monitoring the blockchain until its
-   * {@link @liquity/lib-base#LiquityStore.start | start()} function is called.
+   * {@link lib-base#LiquityStore.start | start()} function is called.
    */
   readonly useStore?: EthersLiquityStoreOption;
 }
@@ -310,8 +312,6 @@ export function _connectByChainId(
   chainId: number,
   optionalParams?: EthersLiquityConnectionOptionalParams
 ): EthersLiquityConnection {
-  console.debug("lib-ethers: deployments =", deployments);
-
   const deployment: _LiquityDeploymentJSON =
     deployments[chainId] ?? panic(new UnsupportedNetworkError(chainId));
 

@@ -11,7 +11,7 @@ import {
   TroveClosureDetails,
   TroveCreationDetails,
   TroveCreationParams
-} from "@liquity/lib-base";
+} from "lib-base";
 
 import {
   EthersTransactionOverrides,
@@ -29,7 +29,7 @@ import {
 const sendTransaction = <T>(tx: PopulatedEthersLiquityTransaction<T>) => tx.send();
 
 /**
- * Ethers-based implementation of {@link @liquity/lib-base#SendableLiquity}.
+ * Ethers-based implementation of {@link lib-base#SendableLiquity}.
  *
  * @public
  */
@@ -41,7 +41,7 @@ export class SendableEthersLiquity
     this._populate = populatable;
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.openTrove} */
+  /** {@inheritDoc lib-base#SendableLiquity.openTrove} */
   async openTrove(
     params: TroveCreationParams<Decimalish>,
     maxBorrowingRateOrOptionalParams?: Decimalish | BorrowingOperationOptionalParams,
@@ -52,14 +52,14 @@ export class SendableEthersLiquity
       .then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.closeTrove} */
+  /** {@inheritDoc lib-base#SendableLiquity.closeTrove} */
   closeTrove(
     overrides?: EthersTransactionOverrides
   ): Promise<SentEthersLiquityTransaction<TroveClosureDetails>> {
     return this._populate.closeTrove(overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.adjustTrove} */
+  /** {@inheritDoc lib-base#SendableLiquity.adjustTrove} */
   adjustTrove(
     params: TroveAdjustmentParams<Decimalish>,
     maxBorrowingRateOrOptionalParams?: Decimalish | BorrowingOperationOptionalParams,
@@ -70,7 +70,7 @@ export class SendableEthersLiquity
       .then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.depositCollateral} */
+  /** {@inheritDoc lib-base#SendableLiquity.depositCollateral} */
   depositCollateral(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -78,7 +78,7 @@ export class SendableEthersLiquity
     return this._populate.depositCollateral(amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.withdrawCollateral} */
+  /** {@inheritDoc lib-base#SendableLiquity.withdrawCollateral} */
   withdrawCollateral(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -86,7 +86,7 @@ export class SendableEthersLiquity
     return this._populate.withdrawCollateral(amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.borrowLUSD} */
+  /** {@inheritDoc lib-base#SendableLiquity.borrowLUSD} */
   borrowLUSD(
     amount: Decimalish,
     maxBorrowingRate?: Decimalish,
@@ -95,7 +95,7 @@ export class SendableEthersLiquity
     return this._populate.borrowLUSD(amount, maxBorrowingRate, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.repayLUSD} */
+  /** {@inheritDoc lib-base#SendableLiquity.repayLUSD} */
   repayLUSD(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -111,7 +111,7 @@ export class SendableEthersLiquity
     return this._populate.setPrice(price, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.liquidate} */
+  /** {@inheritDoc lib-base#SendableLiquity.liquidate} */
   liquidate(
     address: string | string[],
     overrides?: EthersTransactionOverrides
@@ -119,7 +119,7 @@ export class SendableEthersLiquity
     return this._populate.liquidate(address, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.liquidateUpTo} */
+  /** {@inheritDoc lib-base#SendableLiquity.liquidateUpTo} */
   liquidateUpTo(
     maximumNumberOfTrovesToLiquidate: number,
     overrides?: EthersTransactionOverrides
@@ -129,7 +129,7 @@ export class SendableEthersLiquity
       .then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.depositLUSDInStabilityPool} */
+  /** {@inheritDoc lib-base#SendableLiquity.depositLUSDInStabilityPool} */
   depositLUSDInStabilityPool(
     amount: Decimalish,
     frontendTag?: string,
@@ -140,7 +140,7 @@ export class SendableEthersLiquity
       .then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.withdrawLUSDFromStabilityPool} */
+  /** {@inheritDoc lib-base#SendableLiquity.withdrawLUSDFromStabilityPool} */
   withdrawLUSDFromStabilityPool(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -148,21 +148,21 @@ export class SendableEthersLiquity
     return this._populate.withdrawLUSDFromStabilityPool(amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.withdrawGainsFromStabilityPool} */
+  /** {@inheritDoc lib-base#SendableLiquity.withdrawGainsFromStabilityPool} */
   withdrawGainsFromStabilityPool(
     overrides?: EthersTransactionOverrides
   ): Promise<SentEthersLiquityTransaction<StabilityPoolGainsWithdrawalDetails>> {
     return this._populate.withdrawGainsFromStabilityPool(overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.transferCollateralGainToTrove} */
+  /** {@inheritDoc lib-base#SendableLiquity.transferCollateralGainToTrove} */
   transferCollateralGainToTrove(
     overrides?: EthersTransactionOverrides
   ): Promise<SentEthersLiquityTransaction<CollateralGainTransferDetails>> {
     return this._populate.transferCollateralGainToTrove(overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.sendLUSD} */
+  /** {@inheritDoc lib-base#SendableLiquity.sendLUSD} */
   sendLUSD(
     toAddress: string,
     amount: Decimalish,
@@ -171,7 +171,7 @@ export class SendableEthersLiquity
     return this._populate.sendLUSD(toAddress, amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.sendLQTY} */
+  /** {@inheritDoc lib-base#SendableLiquity.sendLQTY} */
   sendLQTY(
     toAddress: string,
     amount: Decimalish,
@@ -180,7 +180,7 @@ export class SendableEthersLiquity
     return this._populate.sendLQTY(toAddress, amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.redeemLUSD} */
+  /** {@inheritDoc lib-base#SendableLiquity.redeemLUSD} */
   redeemLUSD(
     amount: Decimalish,
     maxRedemptionRate?: Decimalish,
@@ -189,14 +189,14 @@ export class SendableEthersLiquity
     return this._populate.redeemLUSD(amount, maxRedemptionRate, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.claimCollateralSurplus} */
+  /** {@inheritDoc lib-base#SendableLiquity.claimCollateralSurplus} */
   claimCollateralSurplus(
     overrides?: EthersTransactionOverrides
   ): Promise<SentEthersLiquityTransaction<void>> {
     return this._populate.claimCollateralSurplus(overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.stakeLQTY} */
+  /** {@inheritDoc lib-base#SendableLiquity.stakeLQTY} */
   stakeLQTY(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -204,7 +204,7 @@ export class SendableEthersLiquity
     return this._populate.stakeLQTY(amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.unstakeLQTY} */
+  /** {@inheritDoc lib-base#SendableLiquity.unstakeLQTY} */
   unstakeLQTY(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -212,14 +212,14 @@ export class SendableEthersLiquity
     return this._populate.unstakeLQTY(amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.withdrawGainsFromStaking} */
+  /** {@inheritDoc lib-base#SendableLiquity.withdrawGainsFromStaking} */
   withdrawGainsFromStaking(
     overrides?: EthersTransactionOverrides
   ): Promise<SentEthersLiquityTransaction<void>> {
     return this._populate.withdrawGainsFromStaking(overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.registerFrontend} */
+  /** {@inheritDoc lib-base#SendableLiquity.registerFrontend} */
   registerFrontend(
     kickbackRate: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -236,7 +236,7 @@ export class SendableEthersLiquity
     return this._populate._mintUniToken(amount, address, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.approveUniTokens} */
+  /** {@inheritDoc lib-base#SendableLiquity.approveUniTokens} */
   approveUniTokens(
     allowance?: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -244,7 +244,7 @@ export class SendableEthersLiquity
     return this._populate.approveUniTokens(allowance, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.stakeUniTokens} */
+  /** {@inheritDoc lib-base#SendableLiquity.stakeUniTokens} */
   stakeUniTokens(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -252,7 +252,7 @@ export class SendableEthersLiquity
     return this._populate.stakeUniTokens(amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.unstakeUniTokens} */
+  /** {@inheritDoc lib-base#SendableLiquity.unstakeUniTokens} */
   unstakeUniTokens(
     amount: Decimalish,
     overrides?: EthersTransactionOverrides
@@ -260,14 +260,14 @@ export class SendableEthersLiquity
     return this._populate.unstakeUniTokens(amount, overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.withdrawLQTYRewardFromLiquidityMining} */
+  /** {@inheritDoc lib-base#SendableLiquity.withdrawLQTYRewardFromLiquidityMining} */
   withdrawLQTYRewardFromLiquidityMining(
     overrides?: EthersTransactionOverrides
   ): Promise<SentEthersLiquityTransaction<void>> {
     return this._populate.withdrawLQTYRewardFromLiquidityMining(overrides).then(sendTransaction);
   }
 
-  /** {@inheritDoc @liquity/lib-base#SendableLiquity.exitLiquidityMining} */
+  /** {@inheritDoc lib-base#SendableLiquity.exitLiquidityMining} */
   exitLiquidityMining(
     overrides?: EthersTransactionOverrides
   ): Promise<SentEthersLiquityTransaction<void>> {

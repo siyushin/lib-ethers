@@ -27,7 +27,9 @@ const multicallAddress = {
   3: "0x53c43764255c17bd724f74c4ef150724ac50a3ed",
   4: "0x42ad527de7d4e9d9d011ac45b31d8551f8fe9821",
   5: "0x77dca2c955b15e9de4dbbcf1246b4b85b651e50e",
-  42: "0x2cc8688c5f75e365aaeeb4ea8d6a480405a48d2a"
+  42: "0x2cc8688c5f75e365aaeeb4ea8d6a480405a48d2a",
+  4690: "0x7B0338afA9b19973592e26E7ACcf077C556aaAC9",
+  4689: "0x63ccc9bd0dc151a2537aaf93375edb700c883f6a"
 };
 
 const hasMulticall = (chainId: number): chainId is keyof typeof multicallAddress =>
@@ -43,8 +45,8 @@ export const _connectToMulticall = (
 ): _Multicall | undefined =>
   hasMulticall(chainId)
     ? ((new Contract(
-        multicallAddress[chainId],
-        multicallAbi,
-        signerOrProvider
-      ) as unknown) as _Multicall)
+      multicallAddress[chainId],
+      multicallAbi,
+      signerOrProvider
+    ) as unknown) as _Multicall)
     : undefined;

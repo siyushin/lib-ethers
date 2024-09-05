@@ -229,7 +229,6 @@ const mapLiquityContracts = <T, U>(
   Object.fromEntries(
     Object.entries(contracts).map(([key, t]) => {
       const res = [key, f(t, key as LiquityContractsKey)];
-      console.debug("lib-ethers: mapLiquityContracts() res =", res);
       return res;
     })
   ) as Record<LiquityContractsKey, U>;
@@ -254,15 +253,11 @@ export const _connectToContracts = (
   signerOrProvider: EthersSigner | EthersProvider,
   { addresses, _priceFeedIsTestnet, _uniTokenIsMock }: _LiquityDeploymentJSON
 ): _LiquityContracts => {
-  console.debug("lib-ethers: 检查合约是否存在 _connectToContracts() 参数", addresses);
-
   const abi = getAbi(_priceFeedIsTestnet, _uniTokenIsMock);
 
   return mapLiquityContracts(
     addresses,
     (address, key) => {
-      console.debug("lib-ethers: 检查合约是否存在 遍历", address, key, !!address, address === "");
-
       if (address) {
         const res = new _LiquityContract(address, abi[key], signerOrProvider) as _TypedLiquityContract;
         return res;
